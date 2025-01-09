@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
       android:name=".MainApplication"
@@ -22,5 +25,11 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      <service 
+        android:name="com.asterinet.react.bgactions.RNBackgroundActionsTask" 
+        android:enabled="true"
+        android:exported="true"
+        android:foregroundServiceType="dataSync"
+        android:stopWithTask="false" />
     </application>
 </manifest>
